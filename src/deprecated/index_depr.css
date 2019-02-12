@@ -1,0 +1,93 @@
+@font-face {
+  font-family: "Poppins Regular";
+  src: url("./fonts/Poppins-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Anonymous Pro";
+  src: url("./fonts/Anonymous-Pro.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Anonymous Pro Bold";
+  src: url("./fonts/Anonymous-Pro-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Libre Baskerville";
+  src: url("./fonts/LibreBaskerville-Regular.otf") format("opentype");
+}
+
+:root {
+  --dark: #00051e;
+  --light: #fffaf0;
+  --typeface: "Poppins Regular", sans-serif;
+}
+
+body {
+  background-color: var(--dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input[type="text"] {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 92pt;
+  color: var(--light);
+  caret-color: var(--light);
+  background-color: var(--dark);
+  outline: none;
+  border: none;
+}
+
+p:hover,
+.SearchBar {
+  background: linear-gradient(225deg, #2a63f1, #51bd8c);
+  background-size: 400% 400%;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: CoolGradient 2s ease infinite;
+  -webkit-animation: CoolGradient 2s ease infinite;
+  -moz-animation: CoolGradient 2s ease infinite;
+}
+
+.PromptUI:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--light);
+}
+
+@keyframes CoolGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-webkit-keyframes CoolGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes CoolGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

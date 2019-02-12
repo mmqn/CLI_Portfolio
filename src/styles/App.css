@@ -1,16 +1,16 @@
 @font-face {
   font-family: "Poppins Regular";
-  src: url("./fonts/Poppins-Regular.otf") format("opentype");
+  src: url("../fonts/Poppins-Regular.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Anonymous Pro";
-  src: url("./fonts/Anonymous-Pro.ttf") format("truetype");
+  src: url("../fonts/Anonymous-Pro.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Anonymous Pro Bold";
-  src: url("./fonts/Anonymous-Pro-Bold.ttf") format("truetype");
+  src: url("../fonts/Anonymous-Pro-Bold.ttf") format("truetype");
 }
 
 body {
@@ -28,7 +28,6 @@ body {
 
 #right-panel {
   font-family: "Poppins Regular", sans-serif;
-  padding-right: 80px;
   float: right;
   height: 100vh;
   width: 60%;
