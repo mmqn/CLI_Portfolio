@@ -17,7 +17,7 @@
 .env.production.local
 
 # custom
-create-react-app-readme.md
+create_react_app_readme.md
 TODO.txt
 *.dat
 
