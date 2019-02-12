@@ -17,10 +17,10 @@
 .env.production.local
 
 # custom
-/create-react-app-readme.md
-/public/favicon_react.ico
-/src/TODO.txt
-.dat
+create-react-app-readme.md
+favicon_react.ico
+TODO.txt
+*.dat
 
 npm-debug.log*
 yarn-debug.log*
