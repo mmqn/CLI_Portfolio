@@ -1,4 +1,0 @@
-Use media query for responsiveness
-Add credits footer (i.e. Built on React, Lyft ColorBox, etc.)
-Cool CSS animations
-Fading animation for RightPanel background
