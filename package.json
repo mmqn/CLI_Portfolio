@@ -1,5 +1,6 @@
 {
-  "name": "portfolio","homepage":"https://mmqn.github.io/",
+  "name": "portfolio",
+  "homepage":"https://michaelmqn.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
