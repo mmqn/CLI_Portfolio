@@ -9,31 +9,26 @@ import "./styles/App.css";
  */
 const Output = ({ result, contentColor }) => (
   <React.Fragment>
-    {result.map((item, index) => {
-      if (index === 0) {
-        return (
-          <p
-            key="title"
-            className="Heading Underlined"
-            style={{
-              marginTop: "40px",
-              color: contentColor
-            }}
+    <p
+      key="title"
+      className="Heading Underlined"
+      style={{
+        marginTop: "40px",
+        color: contentColor
+      }}
+    >
+      {result.Title}
+    </p>
+    {result.Content.map((item, index) => {
+      return (
+        <p
+          key={`result-${index}`}
+          className="Output"
+          style={{ color: contentColor }}
           >
             {item}
           </p>
-        );
-      } else {
-        return (
-          <p
-            key={`result-${index}`}
-            className="Output"
-            style={{ color: contentColor }}
-          >
-            {item}
-          </p>
-        );
-      }
+      )
     })}
   </React.Fragment>
 );
@@ -41,11 +36,11 @@ const Output = ({ result, contentColor }) => (
 export default Output;
 
 Output.propTypes = {
-  result: PropTypes.arrayOf(PropTypes.string),
+  result: PropTypes.shape({}),
   uiColors: PropTypes.shape({})
 };
 
 Output.defaultProps = {
-  result: ["Oh dear, looks like something went wrong 😦"],
+  result: { Title: "Oh dear, looks like something went wrong 😦", Content: ['']},
   contentColor: "#e5fdff"
 };

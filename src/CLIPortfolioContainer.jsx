@@ -1,15 +1,15 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import "./styles/App.css";
 import Tooltip from "./Tooltip";
 import Output from "./Output";
-import resultSet from "./resultSet";
+import resultSet from "./resources/resultSet";
 
 class CLIPortfolio extends Component {
   constructor(props) {
     super(props);
     this.state = {
       query: "",
-      result: [],
+      result: { Title: '', Content: [''] },
       uiColors: {
         BaseColor: "#00051f",
         AlternateBaseColor: "#000e4a",
@@ -23,7 +23,6 @@ class CLIPortfolio extends Component {
       tooltipCoordinates: [0, 0],
       tooltipText: ""
     };
-    // this.$ = this.$.bind(this);
     this.resetQuery = this.resetQuery.bind(this);
     this.setQuery = this.setQuery.bind(this);
     this.handleCommand = this.handleCommand.bind(this);
@@ -43,10 +42,6 @@ class CLIPortfolio extends Component {
     }
     return false;
   }
-
-  // $(x) {
-  //   return document.getElementById(x);
-  // }
 
   resetQuery() {
     document.getElementById("input").focus();
@@ -104,7 +99,7 @@ class CLIPortfolio extends Component {
       });
     } else {
       this.setState({
-        result: []
+        result: { Title: '', Content: [''] }
       });
     }
   }
@@ -188,7 +183,7 @@ class CLIPortfolio extends Component {
     const { resetQuery, setQuery, handleCommand, flipUI, handleTooltip } = this;
 
     const columnDivs = (
-      <React.Fragment>
+      <Fragment>
         <div
           className="ColumnDiv"
           style={{ backgroundColor: columnColors[0] }}
@@ -205,7 +200,7 @@ class CLIPortfolio extends Component {
           className="ColumnDiv"
           style={{ backgroundColor: columnColors[3] }}
         />
-      </React.Fragment>
+      </Fragment>
     );
     const logo = (
       <div
@@ -237,47 +232,43 @@ class CLIPortfolio extends Component {
     );
     const commandsList = (
       <div id="commands-list">
-        {resultSet.commandsList.map((item, index) => {
-          if (index === 0) {
-            return (
-              <p
-                key="title"
-                className="Heading Underlined"
-                style={{
-                  marginTop: "40px",
-                  color: uiColors.ContentColor
-                }}
-                role="button"
-                tabIndex="0"
-                onClick={() =>
-                  this.setState({
-                    mountCommandsList: false,
-                    mountTooltip: false
-                  })
-                }
-                onMouseEnter={ev =>
-                  handleTooltip(true, ev, "click to hide list", "top")
-                }
-                onMouseLeave={() => handleTooltip(false)}
-              >
-                {item}
-              </p>
-            );
-          } else {
-            return (
-              <p
-                key={`cmdls-${index}`}
-                className="Output"
-                style={{ color: uiColors.ContentColor }}
-              >
-                {item}
-              </p>
-            );
+        <p
+          key="title"
+          className="Heading Underlined"
+          style={{
+            marginTop: "40px",
+            color: uiColors.ContentColor
+          }}
+          role="button"
+          tabIndex="0"
+          onClick={() =>
+            this.setState({
+              mountCommandsList: false,
+              mountTooltip: false
+            })
           }
+          onMouseEnter={ev =>
+            handleTooltip(true, ev, "click to hide list", "top")
+          }
+          onMouseLeave={() => handleTooltip(false)}
+        >
+          {resultSet.commandsList.Title}
+        </p>
+        {resultSet.commandsList.Content.map((item, index) => {
+          return (
+            <p
+              key={`cmdls-${index}`}
+              className="Output"
+              style={{ color: uiColors.ContentColor }}
+            >
+              {item.Content}
+            </p>
+          );
         })}
       </div>
     );
-    const linkStyle = uiColors.BaseColor === "#00051f" ? "LightLink" : "DarkLink";
+    const linkStyle =
+      uiColors.BaseColor === "#00051f" ? "LightLink" : "DarkLink";
     const credits = (
       <div id="credits" style={{ color: uiColors.ContentColor }}>
         Find me on&nbsp;[
@@ -431,7 +422,7 @@ class CLIPortfolio extends Component {
                 fontSize: "92pt",
                 color: uiColors.ContentColor,
                 caretColor: uiColors.ContentColor,
-                backgroundColor:  "rgba(0,0,0,0.0)",
+                backgroundColor: "rgba(0,0,0,0.0)",
                 outline: "none",
                 border: "none"
               }}
@@ -488,14 +479,16 @@ class CLIPortfolio extends Component {
               </p>
             </div>
           )}
-          {mountCommandsList || <div style={{ marginTop: "20px" }}>
-            <p className="GuideText" style={{ color: uiColors.ContentColor }}>
-              type '?' for full list of commands
-            </p>
-            <p className="GuideText" style={{ color: uiColors.ContentColor }}>
-              press 'esc' to quickly reset query
-            </p>
-          </div>}
+          {mountCommandsList || (
+            <div style={{ marginTop: "30px" }}>
+              <p className="GuideText" style={{ color: uiColors.ContentColor }}>
+                type '?' for full list of commands
+              </p>
+              <p className="GuideText" style={{ color: uiColors.ContentColor }}>
+                press 'esc' to quickly reset query
+              </p>
+            </div>
+          )}
           {mountCommandsList && commandsList}
         </div>
         {credits}
