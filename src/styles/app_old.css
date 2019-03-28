@@ -1,11 +1,11 @@
 @font-face {
-  font-family: "Poppins Regular";
-  src: url("./fonts/Poppins-Regular.otf") format("opentype");
+  font-family: "Avenir Light";
+  src: url("./fonts/Avenir-Light.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: "Anonymous Pro";
-  src: url("./fonts/Anonymous-Pro.ttf") format("truetype");
+  font-family: "Avenir Heavy";
+  src: url("./fonts/Avenir-Heavy.ttf") format("truetype");
 }
 
 @font-face {

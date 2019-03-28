@@ -1,21 +1,16 @@
 @font-face {
-  font-family: "Poppins Regular";
-  src: url("../fonts/Poppins-Regular.otf") format("opentype");
+  font-family: "Avenir Light";
+  src: url("./fonts/Avenir-Light.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: "Inconsolata";
-  src: url("../fonts/Inconsolata.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Anonymous Pro";
-  src: url("../fonts/Anonymous-Pro.ttf") format("truetype");
+  font-family: "Avenir Heavy";
+  src: url("./fonts/Avenir-Heavy.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Anonymous Pro Bold";
-  src: url("../fonts/Anonymous-Pro-Bold.ttf") format("truetype");
+  src: url("./fonts/Anonymous-Pro-Bold.ttf") format("truetype");
 }
 
 body {
@@ -23,96 +18,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-#left-panel {
-  font-family: "Poppins Regular", sans-serif;
-  position: fixed;
-  height: 100vh;
-  width: 30%;
-  padding-left: 20px;
+.heading {
+  font-family: "Avenir Heavy", sans-serif;
+  font-size: 24px;
+  margin: 0px 0px;
 }
 
-#right-panel {
-  font-family: "Inconsolata", monospace;
-  float: right;
-  height: 100vh;
-  width: 50%;
-  padding-left: 30px;
-  padding-right: 120px;
-  font-size: 20px;
-  line-height: 1.6;
-  text-align: left;
-  overflow-y: auto;
+.subheading {
+  font-family: "Avenir Light", sans-serif;
+  font-size: 24px;
+  margin: 0px 0px;
 }
 
-#flip-UI-prompt {
-  position: absolute;
-  left: 95%;
-  bottom: 38%;
-}
-
-#commands-list {
-  font-family: "Poppins Regular", sans-serif;
-  position: fixed;
-  left: 30px;
-  bottom: 50px;
-}
-
-#credits {
-  font-family: "Poppins Regular", sans-serif;
-  font-size: 12px;
-  position: fixed;
-  left: 12px;
-  bottom: 12px;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  border-radius: 4px;
-}
-
-#logo {
-  position: fixed;
-  right: 18px;
-  bottom: 12px;
-}
-
-.Heading {
-  font-family: inherit;
-  font-size: 28px;
-  line-height: 1.8;
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-
-.Tagline {
-  font-family: inherit;
-  font-size: 32px;
-  line-height: 1.5;
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-
-.GuideText {
-  font-family: inherit;
-  font-size: 18px;
-  line-height: 1.5;
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-
-.CmdLine {
-  font-family: "Anonymous Pro Bold", monospace;
-  font-size: 92pt;
-}
-
-.Output {
-  font-family: inherit;
-  letter-spacing: 0.4px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-
-.Underlined {
+.underlined {
   /* text-decoration: underline; */
   border-bottom: 2px solid currentColor;
   display: inline-block;
@@ -125,7 +43,7 @@ body {
   margin-bottom: 4px;
 }
 
-.NoSelect {
+.no-select {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */
@@ -133,85 +51,30 @@ body {
   user-select: none; /* Non-prefixed version supported by Chrome and Opera */
 }
 
-.ColumnDiv {
-  float: right;
-  height: 100vh;
-  width: 1%;
-}
-
-a.LightLink:link {
+a.light-link:link {
   color: #a5e6f9;
   text-decoration: none;
 }
-a.LightLink:visited {
-  color: #a5e6f9;
-}
-a.LightLink:hover {
+a.light-link:hover {
   color: #65baee;
 }
-a.LightLink:active {
-  color: #e81224;
-}
 
-a.DarkLink:link {
+a.dark-link:link {
   color: #000e4a;
   text-decoration: none;
 }
-a.DarkLink:visited {
-  color: #000e4a;
-}
-a.DarkLink:hover {
+a.dark-link:hover {
   color: #65baee;
 }
-a.DarkLink:active {
-  color: #e81224;
+
+.input-bracket {
+  font-size: 82px;
 }
 
-p:hover,
-.HoverPulse:hover,
-.Pulse {
-  background: linear-gradient(225deg, #65baee, #002da4);
-  /* background: linear-gradient(225deg, #2a63f1, #51bd8c); */
-  background-size: 400% 400%;
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  animation: CoolGradient 2s ease infinite;
-  -webkit-animation: CoolGradient 2s ease infinite;
-  -moz-animation: CoolGradient 2s ease infinite;
-}
-
-@keyframes CoolGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@-webkit-keyframes CoolGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@-moz-keyframes CoolGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+#top-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 20px;
 }

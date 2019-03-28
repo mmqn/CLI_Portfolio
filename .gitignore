@@ -18,7 +18,6 @@
 
 # custom
 create_react_app_readme.md
-TODO.txt
 *.dat
 
 npm-debug.log*

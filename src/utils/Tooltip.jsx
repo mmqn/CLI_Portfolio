@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./styles/Animations.css";
+import "../styles/animations.css";
 
 /**
  * Tooltip component mounts a floating div with a hint text.
