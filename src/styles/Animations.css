@@ -44,7 +44,7 @@
   }
 }
 
-#tooltip {
+/* #tooltip {
   font-family: "Inconsolata", monospace;
   position: fixed;
   z-index: 1;
@@ -66,4 +66,4 @@
   100% {
     opacity: 0.8;
   }
-}
+} */

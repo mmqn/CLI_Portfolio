@@ -30,19 +30,6 @@ body {
   margin: 0px 0px;
 }
 
-.underlined {
-  /* text-decoration: underline; */
-  border-bottom: 2px solid currentColor;
-  display: inline-block;
-  line-height: 0.85;
-  /* text-shadow:
-    2px 2px #e5fdff,
-    2px -2px #e5fdff,
-    -2px 2px #e5fdff,
-    -2px -2px #e5fdff; */
-  margin-bottom: 4px;
-}
-
 .no-select {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -52,20 +39,28 @@ body {
 }
 
 a.light-link:link {
-  color: #a5e6f9;
+  color: #0047c6;
+  text-decoration: none;
+}
+a.light-link:visited {
+  color: #0047c6;
   text-decoration: none;
 }
 a.light-link:hover {
   color: #65baee;
 }
 
-a.dark-link:link {
+/* a.dark-link:link {
+  color: #000e4a;
+  text-decoration: none;
+}
+a.dark-link:visited {
   color: #000e4a;
   text-decoration: none;
 }
 a.dark-link:hover {
   color: #65baee;
-}
+} */
 
 .input-bracket {
   font-size: 82px;
@@ -77,4 +72,12 @@ a.dark-link:hover {
   left: 0;
   width: 100%;
   padding: 20px 20px;
+}
+
+#credits {
+  position: fixed;
+  bottom: 10px;
+  left: 15px;
+  font-family: "Avenir Light", sans-serif;
+  font-size: 14px;
 }
