@@ -97,7 +97,7 @@ class CLIPortfolio extends Component {
 
     const logo = (
       <svg
-        id="keycap_logo"
+        id="logo"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1000 1000"
         width="250"
@@ -271,14 +271,19 @@ class CLIPortfolio extends Component {
               ]
             </span>
           </div>
-          <div style={{ position: "fixed", top: "5px", right: "50px" }}>
-            {logo}
-          </div>
         </div>
-        <div style={{ position: "fixed", bottom: "100px", left: "18vw" }}>
+        <div
+          style={{
+            position: "fixed",
+            bottom: "150px",
+            left: "15px",
+            fontFamily: "Avenir Light"
+          }}
+        >
           This site is under some reconstruction at the moment. Hang tight;
           it'll look pretty cool when it's done!
         </div>
+        {logo}
         {credits}
       </Fragment>
     );

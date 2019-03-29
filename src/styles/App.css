@@ -63,7 +63,8 @@ a.dark-link:hover {
 } */
 
 .input-bracket {
-  font-size: 82px;
+  font-family: "Anonymous Pro Bold", monospace;
+  font-size: 92px;
 }
 
 #top-panel {
@@ -72,6 +73,12 @@ a.dark-link:hover {
   left: 0;
   width: 100%;
   padding: 20px 20px;
+}
+
+#logo {
+  position: fixed;
+  top: 5px;
+  right: 50px;
 }
 
 #credits {
