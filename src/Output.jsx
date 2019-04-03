@@ -1,46 +1,38 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./styles/App.css";
 
 /**
- * Tooltip component mounts a floating div with a hint text.
- * @param {Array} result: Array of content to be printed.
- * @param {String} contentColor: Color of output text.
+ * @param {String} title
+ * @param {String} description
+ * @param {Array} content
+ * @param {String} color
  */
-const Output = ({ result, contentColor }) => (
+const Output = ({ title, description, content, color }) => (
   <React.Fragment>
-    <p
-      key="title"
-      className="Heading Underlined"
-      style={{
-        marginTop: "40px",
-        color: contentColor
-      }}
-    >
-      {result.Title}
-    </p>
-    {result.Content.map((item, index) => {
-      return (
-        <p
-          key={`result-${index}`}
-          className="Output"
-          style={{ color: contentColor }}
-          >
-            {item}
-          </p>
-      )
-    })}
+    <div id="content-leftbar">
+      <h1 style={{ color }}>{title}</h1>
+      <h2 style={{ color }}>{description}</h2>
+    </div>
+    <div id="content-rightbar">
+      {content.map(paragraph => (
+        <p>{paragraph}</p>
+      ))}
+    </div>
   </React.Fragment>
 );
 
 export default Output;
 
 Output.propTypes = {
-  result: PropTypes.shape({}),
-  uiColors: PropTypes.shape({})
+  title: PropTypes.string,
+  description: PropTypes.string,
+  content: PropTypes.arrayOf(PropTypes.string),
+  color: PropTypes.string,
 };
 
 Output.defaultProps = {
-  result: { Title: "Oh dear, looks like something went wrong 😦", Content: ['']},
-  contentColor: "#e5fdff"
+  title: "Oh dear, looks like something went wrong 😦",
+  description: "",
+  content: [""],
+  color: "#000e4a"
 };

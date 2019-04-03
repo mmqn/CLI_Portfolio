@@ -1,16 +1,11 @@
 @font-face {
-  font-family: "Avenir Light";
-  src: url("./fonts/Avenir-Light.ttf") format("truetype");
+  font-family: "Avenir";
+  src: url("./fonts/Avenir-Medium.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: "Avenir Heavy";
-  src: url("./fonts/Avenir-Heavy.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Anonymous Pro Bold";
-  src: url("./fonts/Anonymous-Pro-Bold.ttf") format("truetype");
+  font-family: "Anonymous Pro";
+  src: url("./fonts/Anonymous-Pro-Regular.ttf") format("truetype");
 }
 
 body {
@@ -18,16 +13,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.heading {
-  font-family: "Avenir Heavy", sans-serif;
-  font-size: 24px;
-  margin: 0px 0px;
+h1 {
+  font-family: "Avenir", sans-serif;
+  font-weight: 900;
+  font-size: 32px;
+  margin: 0px 0px 6px 0px;
 }
 
-.subheading {
-  font-family: "Avenir Light", sans-serif;
-  font-size: 24px;
-  margin: 0px 0px;
+h2 {
+  font-family: "Avenir", sans-serif;
+  font-weight: 100;
+  font-size: 18px;
+  font-weight: light;
+  margin: 0px 0px 6px 0px;
 }
 
 .no-select {
@@ -36,6 +34,12 @@ body {
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version supported by Chrome and Opera */
+}
+
+.input-bracket {
+  font-family: "Anonymous Pro", monospace;
+  font-weight: 900;
+  font-size: 92px;
 }
 
 a.light-link:link {
@@ -62,12 +66,22 @@ a.dark-link:hover {
   color: #65baee;
 } */
 
-.input-bracket {
-  font-family: "Anonymous Pro Bold", monospace;
-  font-size: 92px;
+#name-title {
+  font-family: "Avenir", sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  margin: 0px 0px 0px 7px;
+}
+
+#tagline {
+  font-family: "Avenir", sans-serif;
+  font-weight: 100;
+  font-size: 24px;
+  margin: 0px 0px 0px 7px;
 }
 
 #top-panel {
+  z-index: 1;
   position: fixed;
   top: 0;
   left: 0;
@@ -75,16 +89,54 @@ a.dark-link:hover {
   padding: 20px 20px;
 }
 
+#content {
+  z-index: 0;
+  position: fixed;
+  top: 200px;
+  left: 32px;
+}
+
+#content-leftbar {
+  float: left;
+  width: 20%;
+  text-align: right;
+}
+
+#content-rightbar {
+  font-family: "Avenir", sans-serif;
+  font-weight: 400;
+  margin-left: 22%;
+}
+
 #logo {
+  z-index: 2;
   position: fixed;
   top: 5px;
   right: 50px;
 }
 
 #credits {
+  z-index: 2;
   position: fixed;
   bottom: 10px;
-  left: 15px;
-  font-family: "Avenir Light", sans-serif;
+  left: 32px;
+  font-family: "Avenir", sans-serif;
+  font-weight: 100;
   font-size: 14px;
+}
+
+#cmd-list {
+  z-index: 2;
+  position: fixed;
+  right: 8px;
+  width: 200px;
+  border: 1px solid;
+  text-align: center;
+  font-family: "Anonymous Pro", monospace;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+#cmd-list > p {
+  margin: 2px;
 }

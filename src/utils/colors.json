@@ -1,11 +1,10 @@
 {
-  "Blackish": "#00051f",
   "DarkMain": "#000e4a",
-  "DarkOne": "#001b79",
+  "DarkThree": "#001b79",
   "DarkTwo": "#002da4",
-  "Midpoint": "#0047c6",
-  "LightThree": "#2a7fde",
+  "DarkOne": "#0047c6",
+  "LightOne": "#2a7fde",
   "LightTwo": "#65baee",
-  "LightOne": "#a5e6f9",
+  "LightThree": "#a5e6f9",
   "LightMain": "#e5fdff"
 }

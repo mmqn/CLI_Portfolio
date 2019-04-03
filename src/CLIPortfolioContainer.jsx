@@ -1,21 +1,25 @@
 import React, { Component, Fragment } from "react";
 import "./styles/app.css";
 import "./styles/animations.css";
-import colors from "./utils/colors";
+import colors from "./utils/colors.json";
+import resultSet from "./utils/resultSet.json";
+import Output from "./Output";
 // import Tooltip from "./utils/Tooltip";
-// import Output from "./Output";
-// import resultSet from "./utils/resultSet";
 
 class CLIPortfolio extends Component {
   constructor(props) {
     super(props);
     this.state = {
       query: "",
-      mountSubheading: true
+      result: { Title: "", Description: "", Content: [""] },
+      colors: { Primary: colors.LightMain, Secondary: colors.DarkMain },
+      mountContent: false,
+      mountCommandsList: false
     };
     this.resetQuery = this.resetQuery.bind(this);
     this.updateQuery = this.updateQuery.bind(this);
     this.handleCommand = this.handleCommand.bind(this);
+    this.toggleCommandsList = this.toggleCommandsList.bind(this);
   }
 
   // shouldComponentUpdate(nextState) {
@@ -36,7 +40,7 @@ class CLIPortfolio extends Component {
   updateQuery(ev) {
     this.setState({
       query: ev.target.value,
-      mountSubheading: false
+      mountContent: true
     });
   }
 
@@ -52,20 +56,38 @@ class CLIPortfolio extends Component {
         mountCommandsList: true
       });
     } else if (/hello/i.test(query) || /about/i.test(query)) {
-      this.setState({});
+      this.setState({
+        result: resultSet.About
+      });
     } else if (/skills/i.test(query)) {
-      this.setState({});
+      this.setState({
+        result: resultSet.Skills
+      });
     } else if (/experience/i.test(query)) {
-      this.setState({});
+      this.setState({
+        result: resultSet.Experience
+      });
     } else if (/projects/i.test(query)) {
-      this.setState({});
+      this.setState({
+        result: resultSet.Projects
+      });
     } else if (/classes/i.test(query)) {
-      this.setState({});
+      this.setState({
+        result: resultSet.Classes
+      });
     } else if (/flip/i.test(query)) {
       this.setState({});
     } else {
-      this.setState({});
+      this.setState({
+        result: { Title: "", Description: "", Content: [""] }
+      });
     }
+  }
+
+  toggleCommandsList() {
+    this.setState(state => ({
+      mountCommandsList: !state.mountCommandsList
+    }));
   }
 
   // flipUI() {
@@ -90,10 +112,10 @@ class CLIPortfolio extends Component {
   // }
 
   render() {
-    const { query, mountSubheading } = this.state;
-    const { resetQuery, updateQuery, handleCommand } = this;
+    const { query, result, colors, mountContent, mountCommandsList } = this.state;
+    const { resetQuery, updateQuery, handleCommand, toggleCommandsList } = this;
 
-    document.getElementsByTagName("body")[0].bgColor = colors.LightMain;
+    document.getElementsByTagName("body")[0].bgColor = colors.Primary;
 
     const logo = (
       <svg
@@ -107,8 +129,8 @@ class CLIPortfolio extends Component {
         <path
           d="M454.93,803.41L45.4723,567.0093c-25.7578-14.8712-22.5275-40.8473,7.215-58.0191l391.89-226.2579C474.32,265.56,519.3118,263.6954,545.07,278.5666L954.5277,514.9674c25.7578,14.8712,22.5275,40.8473-7.215,58.0191l-391.89,226.2579C525.68,816.4163,480.6882,818.2813,454.93,803.41Z"
           style={{
-            fill: colors.DarkMain,
-            stroke: colors.LightMain,
+            fill: colors.Secondary,
+            stroke: colors.Primary,
             strokeMiterlimit: "10",
             strokeWidth: "16px"
           }}
@@ -120,7 +142,7 @@ class CLIPortfolio extends Component {
           y2="500.643"
           style={{
             fill: "none",
-            stroke: colors.LightMain,
+            stroke: colors.Primary,
             strokeMiterlimit: "10",
             strokeWidth: "16px"
           }}
@@ -132,7 +154,7 @@ class CLIPortfolio extends Component {
           y2="498.3377"
           style={{
             fill: "none",
-            stroke: colors.LightMain,
+            stroke: colors.Primary,
             strokeMiterlimit: "10",
             strokeWidth: "16px"
           }}
@@ -140,19 +162,19 @@ class CLIPortfolio extends Component {
         <path
           d="M454.93,763.0647L45.4723,526.664c-25.7578-14.8712-22.5275-40.8473,7.215-58.0191l391.89-226.2579C474.32,225.215,519.3118,223.35,545.07,238.2213L954.5277,474.6221c25.7578,14.8712,22.5275,40.8473-7.215,58.0191l-391.89,226.2579C525.68,776.071,480.6882,777.936,454.93,763.0647Z"
           style={{
-            fill: colors.DarkMain,
-            stroke: colors.LightMain,
+            fill: colors.Secondary,
+            stroke: colors.Primary,
             strokeMiterlimit: "10",
             strokeWidth: "16px"
           }}
         />
         <path
           d="M370.85,528.4756l117.4048-67.7837-133.43,23.92-18.8505-10.8834,41.4273-77.0377L259.9971,464.4747,225.31,444.448,402.6674,342.0506,439.8707,363.53l-48.1341,88.74,154.21-27.4969,36.951,21.3337L405.5406,548.5042Z"
-          style={{ fill: colors.LightMain }}
+          style={{ fill: colors.Primary }}
         />
         <path
           d="M591.0852,524.388l-113.6576,65.62-34.6871-20.0266L620.098,467.5842l26.8967,15.5288L623.5941,604.016l116.1546-67.0619,34.6906,20.0286L597.3326,659.2354,569.1778,642.98Z"
-          style={{ fill: colors.LightMain }}
+          style={{ fill: colors.Primary }}
         />
         <line
           x1="257.0796"
@@ -161,7 +183,7 @@ class CLIPortfolio extends Component {
           y2="640.8931"
           style={{
             fill: "none",
-            stroke: colors.LightMain,
+            stroke: colors.Primary,
             strokeLinecap: "round",
             strokeMiterlimit: "10",
             strokeWidth: "14px"
@@ -171,7 +193,7 @@ class CLIPortfolio extends Component {
     );
 
     const credits = (
-      <div id="credits" style={{ color: colors.DarkMain }}>
+      <div id="credits" style={{ color: colors.Secondary }}>
         Built using&nbsp;[
         <a
           className="light-link"
@@ -205,27 +227,60 @@ class CLIPortfolio extends Component {
       </div>
     );
 
+    const cmdList = (
+      <div
+        id="cmd-list"
+        className="no-select"
+        onClick={toggleCommandsList}
+        style={{
+          bottom: mountCommandsList
+            ? "0px"
+            : resultSet.CommandsList.Content.length * -17,
+          height: resultSet.CommandsList.Content.length * 17 + 22,
+          backgroundColor: colors.Primary,
+          borderColor: colors.Secondary
+        }}
+      >
+        <p
+          style={{
+            margin: "4px",
+            fontWeight: "900",
+            color: colors.Primary,
+            backgroundColor: colors.Secondary
+          }}
+        >
+          {resultSet.CommandsList.Title}
+        </p>
+        {resultSet.CommandsList.Content.map(command => (
+          <p key={command}>{command}</p>
+        ))}
+      </div>
+    );
+
     return (
       <Fragment>
         <div
           id="top-panel"
           style={
-            mountSubheading
-              ? { backgroundColor: colors.DarkMain, height: "240px" }
-              : { backgroundColor: colors.DarkMain, height: "140px" }
+            !mountContent
+              ? { backgroundColor: colors.Secondary, height: "240px" }
+              : { backgroundColor: colors.Secondary, height: "140px" }
           }
         >
           <p
-            className="heading"
-            style={{ color: colors.LightMain }}
+            id="name-title"
+            style={{ color: colors.Primary }}
             role="button"
             tabIndex="0"
             onClick={() => window.location.reload()}
           >
             Michael M. Q. Nguyen
           </p>
-          {mountSubheading && (
-            <p className="subheading" style={{ color: colors.LightMain }}>
+          {!mountContent && (
+            <p
+              id="tagline"
+              style={{ color: colors.Primary }}
+            >
               I code designs & design code.
               <br />
               Your cursor is hot and ready to fire,
@@ -233,7 +288,7 @@ class CLIPortfolio extends Component {
               just go ahead and type ‘hello’!
             </p>
           )}
-          <div style={{ margin: "-10px -10px", paddingTop: "15px" }}>
+          <div style={{ margin: "-8px", paddingTop: "15px" }}>
             <span
               className="input-bracket pulse"
               role="button"
@@ -255,8 +310,8 @@ class CLIPortfolio extends Component {
                 width: `${query.length * 53}px`,
                 fontFamily: "'Anonymous Pro', monospace",
                 fontSize: "72pt",
-                color: colors.LightMain,
-                caretColor: colors.LightMain,
+                color: colors.Primary,
+                caretColor: colors.Primary,
                 backgroundColor: "rgba(0,0,0,0.0)",
                 outline: "none",
                 border: "none"
@@ -277,14 +332,25 @@ class CLIPortfolio extends Component {
             position: "fixed",
             bottom: "150px",
             left: "15px",
-            fontFamily: "Avenir Light"
+            fontFamily: "Avenir"
           }}
         >
           This site is under some reconstruction at the moment. Hang tight;
           it'll look pretty cool when it's done!
         </div>
+        {mountContent && (
+          <div id="content">
+            <Output
+              title={result.Title}
+              description={result.Description}
+              content={result.Content}
+              color={colors.Secondary}
+            />
+          </div>
+        )}
         {logo}
         {credits}
+        {cmdList}
       </Fragment>
     );
   }

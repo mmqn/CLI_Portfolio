@@ -1,19 +1,20 @@
-const resultSet = {
-  commandsList: {
-    Title: "List of Commands",
-    Content: [
-      "hello | about",
-      "skills",
-      "experience",
-      "projects",
-      "classes",
-      "articles",
-      "flip 💡"
+{
+  "CommandsList": {
+    "Title": "List of Commands",
+    "Description": "",
+    "Content": [
+      "`hello` or `about`",
+      "`skills`",
+      "`experience`",
+      "`projects`",
+      "`classes`",
+      "`articles`"
     ]
   },
-  about: {
-    Title: "About Me",
-    Content: [
+  "About": {
+    "Title": "About Me",
+    "Description": "A little bit about myself.",
+    "Content": [
       "B.S. Computer Information Systems",
       "Applications Development Concentration",
       "Minor in Marketing",
@@ -25,9 +26,10 @@ const resultSet = {
       "Development, design, marketing, data analytics: These all seem like some disparate disciplines, but I think if you look closely, they are all the same. If used morally, they are all modern methods that allow us to make sense of the world and contribute to it in a creative way."
     ]
   },
-  skills: {
-    Title: "Skills",
-    Content: [
+  "Skills": {
+    "Title": "Skills",
+    "Description": "",
+    "Content": [
       "HTML, CSS, & JavaScript",
       "React.js",
       "Java & PHP",
@@ -39,9 +41,10 @@ const resultSet = {
       "Instagram & Facebook Ads"
     ]
   },
-  experience: {
-    Title: "Experience",
-    Content: [
+  "Experience": {
+    "Title": "Experience",
+    "Description": "",
+    "Content": [
       "Front-End Developer, Inland Engineering Services",
       "Tech Lead, 2TAC Corporation",
       "Vice President of Marketing, Alpha Kappa Psi",
@@ -50,13 +53,15 @@ const resultSet = {
       "Barista, The Coffee Bean & Tea Leaf"
     ]
   },
-  projects: {
-    Title: "Projects",
-    Content: ["_"]
+  "Projects": {
+    "Title": "Projects",
+    "Description": "",
+    "Content": ["_"]
   },
-  classes: {
-    Title: "Classes",
-    Content: [
+  "Classes": {
+    "Title": "Classes",
+    "Description": "",
+    "Content": [
       "Object-Oriented Java",
       "Secure Web Development",
       "Back-End Web Development",
@@ -69,10 +74,9 @@ const resultSet = {
       "Business Intelligence"
     ]
   },
-  articles: {
-    Title: "Articles",
-    Content: ["_"]
+  "Articles": {
+    "Title": "Articles",
+    "Description": "",
+    "Content": ["_"]
   }
-};
-
-export default resultSet;
+}
