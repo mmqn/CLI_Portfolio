@@ -9,11 +9,11 @@ import PropTypes from "prop-types";
  */
 const Output = ({ title, description, content, color }) => (
   <React.Fragment>
-    <div id="content-leftbar">
+    <div id="content-header">
       <h1 style={{ color }}>{title}</h1>
       <h2 style={{ color }}>{description}</h2>
     </div>
-    <div id="content-rightbar">
+    <div id="content-body">
       {content.map(paragraph => (
         <p>{paragraph}</p>
       ))}

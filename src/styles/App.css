@@ -96,17 +96,33 @@ a.dark-link:hover {
   left: 32px;
 }
 
-#content-leftbar {
+#content-header {
   float: left;
   width: 18vw;
   text-align: right;
 }
 
-#content-rightbar {
+#content-body {
   font-family: "Avenir", sans-serif;
   font-weight: 400;
   margin-left: 20vw;
   width: 68vw;
+}
+
+#cmd-list {
+  z-index: 2;
+  position: fixed;
+  right: 72px;
+  width: 200px;
+  border: 1px solid;
+  text-align: center;
+  font-family: "Anonymous Pro", monospace;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+#cmd-list > p {
+  margin: 2px;
 }
 
 #logo {
@@ -124,20 +140,4 @@ a.dark-link:hover {
   font-family: "Avenir", sans-serif;
   font-weight: 100;
   font-size: 14px;
-}
-
-#cmd-list {
-  z-index: 2;
-  position: fixed;
-  right: 32px;
-  width: 200px;
-  border: 1px solid;
-  text-align: center;
-  font-family: "Anonymous Pro", monospace;
-  font-weight: 400;
-  font-size: 14px;
-}
-
-#cmd-list > p {
-  margin: 2px;
 }

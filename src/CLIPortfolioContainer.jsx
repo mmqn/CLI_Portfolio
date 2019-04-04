@@ -338,9 +338,9 @@ class CLIPortfolio extends Component {
             />
           </div>
         )}
+        {cmdList}
         {logo}
         {credits}
-        {cmdList}
       </Fragment>
     );
   }
