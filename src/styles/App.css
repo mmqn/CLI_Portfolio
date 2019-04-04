@@ -42,29 +42,29 @@ h2 {
   font-size: 92px;
 }
 
-a.light-link:link {
+a.light-mode-link:link {
   color: #0047c6;
   text-decoration: none;
 }
-a.light-link:visited {
+a.light-mode-link:visited {
   color: #0047c6;
   text-decoration: none;
 }
-a.light-link:hover {
+a.light-mode-link:hover {
   color: #65baee;
 }
 
-/* a.dark-link:link {
-  color: #000e4a;
+a.dark-mode-link:link {
+  color: #2a7fde;
   text-decoration: none;
 }
-a.dark-link:visited {
-  color: #000e4a;
+a.dark-mode-link:visited {
+  color: #2a7fde;
   text-decoration: none;
 }
-a.dark-link:hover {
+a.dark-mode-link:hover {
   color: #65baee;
-} */
+}
 
 #name-title {
   font-family: "Avenir", sans-serif;

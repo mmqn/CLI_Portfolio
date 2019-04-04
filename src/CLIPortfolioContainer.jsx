@@ -13,6 +13,7 @@ class CLIPortfolio extends Component {
     this.state = {
       query: "",
       result: { Title: "", Description: "", Content: [""] },
+      darkMode: false,
       colors: { Primary: colors.LightMain, Secondary: colors.DarkMain },
       mountContent: false,
       mountCommandsList: false
@@ -21,6 +22,7 @@ class CLIPortfolio extends Component {
     this.updateQuery = this.updateQuery.bind(this);
     this.handleCommand = this.handleCommand.bind(this);
     this.toggleCommandsList = this.toggleCommandsList.bind(this);
+    this.flipTheme = this.flipTheme.bind(this);
   }
 
   // shouldComponentUpdate(nextState) {
@@ -48,7 +50,7 @@ class CLIPortfolio extends Component {
   handleCommand(ev) {
     const { key } = ev;
     const { query } = this.state;
-    const { resetQuery } = this;
+    const { resetQuery, flipTheme } = this;
 
     if (key === "Escape") {
       resetQuery();
@@ -77,7 +79,7 @@ class CLIPortfolio extends Component {
         result: resultSet.Classes
       });
     } else if (/flip/i.test(query)) {
-      this.setState({});
+      flipTheme();
     } else {
       this.setState({
         result: { Title: "", Description: "", Content: [""] }
@@ -91,30 +93,41 @@ class CLIPortfolio extends Component {
     }));
   }
 
-  // flipUI() {
-  //   const { uiColors } = this.state;
-  //   const { resetQuery } = this;
-  //
-  //   if (uiColors.BaseColor === colors.) {
-  //     this.setState({
-  //       uiColors: lightUIColors,
-  //       columnColors: lightcolumnColors,
-  //       mountTooltip: false
-  //     });
-  //   } else if (uiColors.BaseColor === colors.) {
-  //     this.setState({
-  //       uiColors: darkUIColors,
-  //       columnColors: darkcolumnColors,
-  //       mountTooltip: false
-  //     });
-  //   }
-  //
-  //   resetQuery();
-  // }
+  flipTheme() {
+    const { darkMode } = this.state;
+    const { resetQuery } = this;
+
+    if (darkMode === false) {
+      this.setState({
+        colors: { Primary: colors.DarkMain, Secondary: colors.LightMain },
+        darkMode: true
+      });
+    } else if (darkMode === true) {
+      this.setState({
+        colors: { Primary: colors.LightMain, Secondary: colors.DarkMain },
+        darkMode: false
+      });
+    }
+
+    resetQuery();
+  }
 
   render() {
-    const { query, result, colors, mountContent, mountCommandsList } = this.state;
-    const { resetQuery, updateQuery, handleCommand, toggleCommandsList } = this;
+    const {
+      query,
+      result,
+      colors,
+      darkMode,
+      mountContent,
+      mountCommandsList
+    } = this.state;
+    const {
+      resetQuery,
+      updateQuery,
+      handleCommand,
+      toggleCommandsList,
+      flipTheme
+    } = this;
 
     document.getElementsByTagName("body")[0].bgColor = colors.Primary;
 
@@ -125,6 +138,7 @@ class CLIPortfolio extends Component {
         viewBox="0 0 1000 1000"
         width="250"
         height="250"
+        onClick={flipTheme}
       >
         <title>keycap_logo</title>
         <path
@@ -197,7 +211,7 @@ class CLIPortfolio extends Component {
       <div id="credits" style={{ color: colors.Secondary }}>
         Built using&nbsp;[
         <a
-          className="light-link"
+          className={darkMode ? "dark-mode-link" : "light-mode-link"}
           href="https://reactjs.org/"
           target="_blank"
           rel="noopener noreferrer"
@@ -206,7 +220,7 @@ class CLIPortfolio extends Component {
         </a>
         ,&nbsp;
         <a
-          className="light-link"
+          className={darkMode ? "dark-mode-link" : "light-mode-link"}
           href="http://www.colorbox.io/#steps=9#hue_start=230#hue_end=185#hue_curve=easeInQuad#sat_start=100#sat_end=5#sat_curve=linear#sat_rate=200#lum_start=12#lum_end=100#lum_curve=easeInQuad#lock_hex="
           target="_blank"
           rel="noopener noreferrer"
@@ -215,7 +229,7 @@ class CLIPortfolio extends Component {
         </a>
         ,&nbsp;
         <a
-          className="light-link"
+          className={darkMode ? "dark-mode-link" : "light-mode-link"}
           href="https://www.youtube.com/watch?v=HEXWRTEbj1I"
           target="_blank"
           rel="noopener noreferrer"
@@ -253,7 +267,9 @@ class CLIPortfolio extends Component {
           {resultSet.CommandsList.Title}
         </p>
         {resultSet.CommandsList.Content.map(command => (
-          <p key={command} style={{ color: colors.Secondary }}>{command}</p>
+          <p key={command} style={{ color: colors.Secondary }}>
+            {command}
+          </p>
         ))}
       </div>
     );
@@ -263,9 +279,9 @@ class CLIPortfolio extends Component {
         <div
           id="top-panel"
           style={
-            !mountContent
-              ? { backgroundColor: colors.Secondary, height: "240px" }
-              : { backgroundColor: colors.Secondary, height: "140px" }
+            mountContent
+              ? { backgroundColor: colors.Secondary, height: "140px" }
+              : { backgroundColor: colors.Secondary, height: "240px" }
           }
         >
           <p
@@ -278,10 +294,7 @@ class CLIPortfolio extends Component {
             Michael M. Q. Nguyen
           </p>
           {!mountContent && (
-            <p
-              id="tagline"
-              style={{ color: colors.Primary }}
-            >
+            <p id="tagline" style={{ color: colors.Primary }}>
               I code designs & design code.
               <br />
               Your cursor is hot and ready to fire,
