@@ -1,14 +1,14 @@
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 
 /**
- * @param {String} title
- * @param {String} description
- * @param {Array} content
- * @param {String} color
+ * @param {String} title: Title for content.
+ * @param {String} description: Subheading/subtitle underneath title.
+ * @param {Array} content: Content to go in content body.
+ * @param {String} color: Color of text matching current theme (i.e. light or dark mode).
  */
-const Output = ({ title, description, content, color }) => (
-  <React.Fragment>
+const Content = ({ title, description, content, color }) => (
+  <Fragment>
     <div id="content-header" style={{ color }}>
       <h1>{title}</h1>
       <h2>{description}</h2>
@@ -18,19 +18,19 @@ const Output = ({ title, description, content, color }) => (
         <p>{paragraph}</p>
       ))}
     </div>
-  </React.Fragment>
+  </Fragment>
 );
 
-export default Output;
+export default Content;
 
-Output.propTypes = {
+Content.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   content: PropTypes.arrayOf(PropTypes.string),
   color: PropTypes.string
 };
 
-Output.defaultProps = {
+Content.defaultProps = {
   title: "Oh dear, looks like something went wrong 😦",
   description: "",
   content: [""],

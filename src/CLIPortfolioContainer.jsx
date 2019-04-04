@@ -3,9 +3,7 @@ import "./styles/app.css";
 import "./styles/animations.css";
 import colors from "./utils/colors.json";
 import resultSet from "./utils/resultSet.json";
-import Output from "./Output";
-import { cpus } from "os";
-// import Tooltip from "./utils/Tooltip";
+import Content from "./Content";
 
 class CLIPortfolio extends Component {
   constructor(props) {
@@ -24,13 +22,6 @@ class CLIPortfolio extends Component {
     this.toggleCommandsList = this.toggleCommandsList.bind(this);
     this.flipTheme = this.flipTheme.bind(this);
   }
-
-  // shouldComponentUpdate(nextState) {
-  //   if (nextState.state !== this.state.state) {
-  //     return true;
-  //   }
-  //   return false;
-  // }
 
   resetQuery() {
     document.getElementById("input").focus();
@@ -208,8 +199,47 @@ class CLIPortfolio extends Component {
     );
 
     const credits = (
-      <div id="credits" style={{ color: colors.Secondary }}>
-        Built using&nbsp;[
+      <div
+        id="credits"
+        style={{ color: colors.Secondary, backgroundColor: colors.Primary }}
+      >
+        Find me on [
+        <a
+          className={darkMode ? "dark-mode-link" : "light-mode-link"}
+          href="https://github.com/mmqn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+        ,&nbsp;
+        <a
+          className={darkMode ? "dark-mode-link" : "light-mode-link"}
+          href="https://www.linkedin.com/in/michaelmqn/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
+        ,&nbsp;
+        <a
+          className={darkMode ? "dark-mode-link" : "light-mode-link"}
+          href="https://twitter.com/m_queue_n"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Twitter
+        </a>
+        ,&nbsp;
+        <a
+          className={darkMode ? "dark-mode-link" : "light-mode-link"}
+          href="mailto:michaelmqn@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Email
+        </a>
+        ] // Built using [
         <a
           className={darkMode ? "dark-mode-link" : "light-mode-link"}
           href="https://reactjs.org/"
@@ -342,14 +372,12 @@ class CLIPortfolio extends Component {
           </div>
         </div>
         {mountContent && (
-          <div id="content">
-            <Output
-              title={result.Title}
-              description={result.Description}
-              content={result.Content}
-              color={colors.Secondary}
-            />
-          </div>
+          <Content
+            title={result.Title}
+            description={result.Description}
+            content={result.Content}
+            color={colors.Secondary}
+          />
         )}
         {cmdList}
         {logo}

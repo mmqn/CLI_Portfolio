@@ -89,24 +89,20 @@ a.dark-mode-link:hover {
   padding: 20px 20px;
 }
 
-#content {
-  z-index: 0;
+#content-header {
   position: fixed;
   top: 200px;
-  left: 32px;
-}
-
-#content-header {
-  float: left;
-  width: 18vw;
+  left: 0px;
+  width: 270px;
   text-align: right;
 }
 
 #content-body {
+  position: absolute;
+  overflow: scroll;
   font-family: "Avenir", sans-serif;
   font-weight: 400;
-  margin-left: 20vw;
-  width: 68vw;
+  margin: 185px 170px 30px 290px;
 }
 
 #cmd-list {
@@ -135,8 +131,9 @@ a.dark-mode-link:hover {
 #credits {
   z-index: 2;
   position: fixed;
-  bottom: 10px;
-  left: 32px;
+  bottom: 0px;
+  left: 28px;
+  padding: 2px 2px 10px 0px;
   font-family: "Avenir", sans-serif;
   font-weight: 100;
   font-size: 14px;
