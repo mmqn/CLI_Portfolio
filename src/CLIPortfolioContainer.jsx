@@ -4,6 +4,7 @@ import "./styles/animations.css";
 import colors from "./utils/colors.json";
 import resultSet from "./utils/resultSet.json";
 import Output from "./Output";
+import { cpus } from "os";
 // import Tooltip from "./utils/Tooltip";
 
 class CLIPortfolio extends Component {
@@ -252,7 +253,7 @@ class CLIPortfolio extends Component {
           {resultSet.CommandsList.Title}
         </p>
         {resultSet.CommandsList.Content.map(command => (
-          <p key={command}>{command}</p>
+          <p key={command} style={{ color: colors.Secondary }}>{command}</p>
         ))}
       </div>
     );
@@ -326,17 +327,6 @@ class CLIPortfolio extends Component {
               ]
             </span>
           </div>
-        </div>
-        <div
-          style={{
-            position: "fixed",
-            bottom: "150px",
-            left: "15px",
-            fontFamily: "Avenir"
-          }}
-        >
-          This site is under some reconstruction at the moment. Hang tight;
-          it'll look pretty cool when it's done!
         </div>
         {mountContent && (
           <div id="content">
