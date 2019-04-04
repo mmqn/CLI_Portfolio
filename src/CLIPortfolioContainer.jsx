@@ -1,8 +1,9 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import "./styles/app.css";
 import "./styles/animations.css";
 import colors from "./utils/colors.json";
 import resultSet from "./utils/resultSet.json";
+import ErrorBoundary from "./utils/ErrorBoundary";
 import Content from "./Content";
 
 class CLIPortfolio extends Component {
@@ -86,7 +87,6 @@ class CLIPortfolio extends Component {
 
   flipTheme() {
     const { darkMode } = this.state;
-    const { resetQuery } = this;
 
     if (darkMode === false) {
       this.setState({
@@ -99,8 +99,6 @@ class CLIPortfolio extends Component {
         darkMode: false
       });
     }
-
-    resetQuery();
   }
 
   render() {
@@ -281,7 +279,7 @@ class CLIPortfolio extends Component {
           bottom: mountCommandsList
             ? "0px"
             : resultSet.CommandsList.Content.length * -17,
-          height: resultSet.CommandsList.Content.length * 17 + 22,
+          height: resultSet.CommandsList.Content.length * 17 + 20,
           backgroundColor: colors.Primary,
           borderColor: colors.Secondary
         }}
@@ -289,6 +287,7 @@ class CLIPortfolio extends Component {
         <p
           style={{
             margin: "4px",
+            padding: "1px",
             fontWeight: "900",
             color: colors.Primary,
             backgroundColor: colors.Secondary
@@ -305,7 +304,7 @@ class CLIPortfolio extends Component {
     );
 
     return (
-      <Fragment>
+      <ErrorBoundary>
         <div
           id="top-panel"
           style={
@@ -382,7 +381,7 @@ class CLIPortfolio extends Component {
         {cmdList}
         {logo}
         {credits}
-      </Fragment>
+      </ErrorBoundary>
     );
   }
 }

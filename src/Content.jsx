@@ -1,5 +1,6 @@
-import React, { Fragment } from "react";
+import React from "react";
 import PropTypes from "prop-types";
+import ErrorBoundary from "./utils/ErrorBoundary";
 
 /**
  * @param {String} title: Title for content.
@@ -8,7 +9,7 @@ import PropTypes from "prop-types";
  * @param {String} color: Color of text matching current theme (i.e. light or dark mode).
  */
 const Content = ({ title, description, content, color }) => (
-  <Fragment>
+  <ErrorBoundary>
     <div id="content-header" style={{ color }}>
       <h1>{title}</h1>
       <h2>{description}</h2>
@@ -18,7 +19,7 @@ const Content = ({ title, description, content, color }) => (
         <p>{paragraph}</p>
       ))}
     </div>
-  </Fragment>
+  </ErrorBoundary>
 );
 
 export default Content;
