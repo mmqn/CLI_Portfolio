@@ -118,7 +118,7 @@ class CLIPortfolio extends Component {
       flipTheme
     } = this;
 
-    document.getElementsByTagName("body")[0].bgColor = colors.Primary;
+    document.getElementById("body").style.backgroundColor = colors.Primary;
 
     const logo = (
       <svg
