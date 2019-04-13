@@ -3,8 +3,28 @@
   "name": "mmqn's Portfolio",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "16x16 32x32 48x48 180x180 192x192 512x512",
+      "src": "favicon16.ico",
+      "size": "16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "favicon32.ico",
+      "size": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "favicon48.ico",
+      "size": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "favicon180.ico",
+      "size": "180x180",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "favicon192.ico",
+      "size": "192x192",
       "type": "image/x-icon"
     }
   ],
