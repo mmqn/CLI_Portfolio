@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import "./styles/app.css";
 import "./styles/animations.css";
 import colors from "./utils/colors.json";
-import resultSet from "./utils/resultSet.json";
+import content from "./utils/data.json";
+import generateData from "./utils/dataGen";
 import ErrorBoundary from "./utils/ErrorBoundary";
 import Content from "./Content";
 
@@ -52,26 +53,28 @@ class CLIPortfolio extends Component {
       });
     } else if (/hello/i.test(query) || /about/i.test(query)) {
       this.setState({
-        result: resultSet.About
+        result: content.About
       });
     } else if (/skills/i.test(query)) {
       this.setState({
-        result: resultSet.Skills
+        result: content.Skills
       });
     } else if (/experience/i.test(query)) {
       this.setState({
-        result: resultSet.Experience
+        result: content.Experience
       });
     } else if (/projects/i.test(query)) {
       this.setState({
-        result: resultSet.Projects
+        result: content.Projects
       });
-    } else if (/classes/i.test(query)) {
+    } else if (/courses/i.test(query) || /classes/i.test(query)) {
       this.setState({
-        result: resultSet.Classes
+        result: content.Courses
       });
     } else if (/flip/i.test(query)) {
       flipTheme();
+    } else if (/datagen/i.test(query)) {
+      generateData();
     } else {
       this.setState({
         result: { Title: "", Description: "", Content: [""] }
@@ -278,8 +281,8 @@ class CLIPortfolio extends Component {
         style={{
           bottom: mountCommandsList
             ? "0px"
-            : resultSet.CommandsList.Content.length * -17,
-          height: resultSet.CommandsList.Content.length * 17 + 20,
+            : content.CommandsList.Content.length * -17,
+          height: content.CommandsList.Content.length * 17 + 20,
           backgroundColor: colors.Primary,
           borderColor: colors.Secondary
         }}
@@ -293,9 +296,9 @@ class CLIPortfolio extends Component {
             backgroundColor: colors.Secondary
           }}
         >
-          {resultSet.CommandsList.Title}
+          {content.CommandsList.Title}
         </p>
-        {resultSet.CommandsList.Content.map(command => (
+        {content.CommandsList.Content.map(command => (
           <p key={command} style={{ color: colors.Secondary }}>
             {command}
           </p>

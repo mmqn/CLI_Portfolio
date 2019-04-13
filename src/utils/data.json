@@ -7,7 +7,7 @@
       "`skills`",
       "`experience`",
       "`projects`",
-      "`classes`",
+      "`courses` or `classes`",
       "`articles`",
       "`flip`"
     ]
@@ -30,17 +30,21 @@
   },
   "Skills": {
     "Title": "Skills",
-    "Description": "",
+    "Description": "Development, design, analytics, marketing",
     "Content": [
-      "HTML, CSS, & JavaScript",
-      "React.js",
-      "Java & PHP",
-      "SQL & Database Design",
-      "Adobe Illustrator, Photoshop, & After Effects",
-      "Adobe XD",
-      "Scrum Methodology",
-      "WordPress & Squarespace CMS",
-      "Instagram & Facebook Ads"
+      "JavaScript & React.js,",
+      "HTML & CSS,",
+      "C# & ASP.NET,",
+      "PHP,",
+      "Database Design & SQL,",
+      "Adobe XD,",
+      "Adobe Illustrator & Photoshop,",
+      "Scripting in Excel & Sheets,",
+      "Excel Data Analysis,",
+      "Google Analytics,",
+      "Search Engine Optimization,",
+      "Social Media Advertising,",
+      "Qualtrics"
     ]
   },
   "Experience": {
@@ -60,20 +64,21 @@
     "Description": "",
     "Content": ["_"]
   },
-  "Classes": {
-    "Title": "Classes",
-    "Description": "",
+  "Courses": {
+    "Title": "Courses",
+    "Description": "Some of my favorite courses that have broadened my understanding through the years",
     "Content": [
-      "Object-Oriented Java",
-      "Secure Web Development",
-      "Back-End Web Development",
-      "Business Telecommunications",
-      "Database Design & Development",
-      "User Experience Design",
-      "Foundations in Digital Design",
-      "Consumer Behavior",
-      "Digital Analytics",
-      "Business Intelligence"
+      "Interactive Web Development,",
+      "Secure Web Development,",
+      "E-Commerce Applications,",
+      "Business Telecommunications,",
+      "Database Design,",
+      "User Experience Design,",
+      "Architecture Design,",
+      "Digital Analytics,",
+      "Consumer Behavior,",
+      "Marketing Research,",
+      "E-Marketing"
     ]
   },
   "Articles": {
