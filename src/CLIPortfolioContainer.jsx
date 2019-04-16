@@ -281,8 +281,8 @@ class CLIPortfolio extends Component {
         style={{
           bottom: mountCommandsList
             ? "0px"
-            : content.CommandsList.Content.length * -17,
-          height: content.CommandsList.Content.length * 17 + 20,
+            : content.CommandsList.Content.length * -20 + 4,
+          height: content.CommandsList.Content.length * 20 + 22,
           backgroundColor: colors.Primary,
           borderColor: colors.Secondary
         }}
@@ -334,7 +334,7 @@ class CLIPortfolio extends Component {
               just go ahead and type ‘hello’!
             </p>
           )}
-          <div style={{ margin: "-8px", paddingTop: "15px" }}>
+          <div style={{ margin: "-15px" }}>
             <span
               className="input-bracket pulse"
               role="button"
@@ -353,8 +353,8 @@ class CLIPortfolio extends Component {
               onKeyUp={handleCommand}
               autoFocus={true}
               style={{
-                width: `${query.length * 53}px`,
-                fontFamily: "'Anonymous Pro', monospace",
+                width: `${query.length * 59}px`,
+                fontFamily: "'Space Mono Italic', monospace",
                 fontSize: "72pt",
                 color: colors.Primary,
                 caretColor: colors.Primary,

@@ -8,6 +8,16 @@
   src: url("./fonts/Anonymous-Pro-Regular.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "Space Mono";
+  src: url("./fonts/Space-Mono-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Space Mono Italic";
+  src: url("./fonts/Space-Mono-Bold-Italic.ttf") format("truetype");
+}
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -24,8 +34,7 @@ h2 {
   font-family: "Avenir", sans-serif;
   font-weight: 100;
   font-size: 18px;
-  font-weight: light;
-  margin: 0px 0px 6px 0px;
+  margin: 0px 0px 6px 30px;
 }
 
 a.light-mode-link:link {
@@ -61,7 +70,7 @@ a.dark-mode-link:hover {
 }
 
 .input-bracket {
-  font-family: "Anonymous Pro", monospace;
+  font-family: "Space Mono", monospace;
   font-weight: 900;
   font-size: 92px;
 }
@@ -101,6 +110,7 @@ a.dark-mode-link:hover {
   overflow: hidden;
   font-family: "Avenir", sans-serif;
   font-weight: 400;
+  line-height: 26px;
   margin: 185px 170px 30px 290px;
 }
 
@@ -111,9 +121,9 @@ a.dark-mode-link:hover {
   width: 200px;
   border: 1px solid;
   text-align: center;
-  font-family: "Anonymous Pro", monospace;
-  font-weight: 400;
-  font-size: 14px;
+  font-family: "Space Mono", monospace;
+  font-weight: 200;
+  font-size: 12px;
 }
 
 #cmd-list > p {

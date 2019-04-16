@@ -16,7 +16,7 @@ const Content = ({ title, description, content, color }) => (
     </div>
     <div id="content-body" style={{ color }}>
       {content.map(paragraph => (
-        <p key={paragraph.substring(0, 4)}>{paragraph}</p>
+        <p key={paragraph.substring(0, 9)}>{paragraph}</p>
       ))}
     </div>
   </ErrorBoundary>
