@@ -126,10 +126,9 @@ class CLIPortfolio extends Component {
     const logo = (
       <svg
         id="logo"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1000 1000"
         width="250"
         height="250"
+        viewBox="0 0 1000 1000"
         onClick={flipTheme}
       >
         <title>keycap_logo</title>
@@ -202,7 +201,11 @@ class CLIPortfolio extends Component {
     const credits = (
       <div
         id="credits"
-        style={{ color: colors.Secondary, backgroundColor: colors.Primary }}
+        style={{
+          color: colors.Secondary,
+          backgroundColor: colors.Primary,
+          borderTop: `1px solid ${colors.Secondary}`
+        }}
       >
         Find me on [
         <a
@@ -334,7 +337,7 @@ class CLIPortfolio extends Component {
               just go ahead and type ‘hello’!
             </p>
           )}
-          <div style={{ margin: "-15px" }}>
+          <div style={{ margin: "-15px", whiteSpace: "nowrap" }}>
             <span
               className="input-bracket pulse"
               role="button"

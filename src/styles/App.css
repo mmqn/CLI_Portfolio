@@ -99,25 +99,29 @@ a.dark-mode-link:hover {
 }
 
 #content-header {
-  position: fixed;
+  position: relative;
   top: 200px;
+  float: left;
+  margin-right: 30px;
   width: 270px;
   text-align: right;
 }
 
 #content-body {
-  position: absolute;
-  overflow: hidden;
+  position: relative;
+  top: 190px;
+  margin-right: 10rem;
+  margin-bottom: 40px;
+  overflow-y: hidden;
   font-family: "Avenir", sans-serif;
   font-weight: 400;
   line-height: 26px;
-  margin: 185px 170px 30px 290px;
 }
 
 #cmd-list {
   z-index: 3;
   position: fixed;
-  right: 72px;
+  right: 70px;
   width: 200px;
   border: 1px solid;
   text-align: center;
@@ -143,12 +147,28 @@ a.dark-mode-link:hover {
   bottom: 0px;
   left: 0px;
   width: 100%;
-  padding: 2px 2px 4px 28px;
+  padding: 0px 2px 4px 28px;
   font-family: "Avenir", sans-serif;
   font-weight: 100;
   font-size: 14px;
+  white-space: nowrap;
 }
 
-/* @media only screen and (max-width: 840px) {
+@media only screen and (max-width: 730px) {
+  #logo {
+    display: none;
+  }
+  #content-header {
+    float: none;
+    width: auto;
+  }
+  #content-body {
+    margin: 1rem 2rem;
+  }
+}
 
-} */
+@media only screen and (max-width: 830px) {
+  #credits {
+    display: none;
+  }
+}
