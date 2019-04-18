@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./styles/app.css";
 import "./styles/animations.css";
 import colors from "./utils/colors.json";
-import content from "./utils/data.json";
+// import content from "./utils/data.json";
 import generateData from "./utils/dataGen";
 import ErrorBoundary from "./utils/ErrorBoundary";
 import Content from "./Content";
@@ -12,9 +12,16 @@ class CLIPortfolio extends Component {
     super(props);
     this.state = {
       query: "",
-      result: { Title: "", Description: "", Content: [""] },
-      darkMode: false,
+      content: {
+        CommandsList: {
+          Title: "List of Commands",
+          Description: "",
+          Content: []
+        }
+      },
+      currentContent: { Title: "", Description: "", Content: [""] },
       colors: { Primary: colors.LightMain, Secondary: colors.DarkMain },
+      darkMode: false,
       mountContent: false,
       mountCommandsList: false
     };
@@ -23,6 +30,18 @@ class CLIPortfolio extends Component {
     this.handleCommand = this.handleCommand.bind(this);
     this.toggleCommandsList = this.toggleCommandsList.bind(this);
     this.flipTheme = this.flipTheme.bind(this);
+  }
+
+  componentDidMount() {
+    fetch(
+      "https://gist.githubusercontent.com/mmqn/96b6e5f897f8aa51531e4c97c35e5067/raw/289a460c31a9df462e92670a4238b49113449442/portfolio_data.json"
+    )
+      .then(response => response.json())
+      .then(json => {
+        this.setState({
+          content: json
+        });
+      });
   }
 
   resetQuery() {
@@ -42,7 +61,7 @@ class CLIPortfolio extends Component {
 
   handleCommand(ev) {
     const { key } = ev;
-    const { query } = this.state;
+    const { query, content } = this.state;
     const { resetQuery, flipTheme } = this;
 
     if (key === "Escape") {
@@ -53,23 +72,23 @@ class CLIPortfolio extends Component {
       });
     } else if (/hello/i.test(query) || /about/i.test(query)) {
       this.setState({
-        result: content.About
+        currentContent: content.About
       });
     } else if (/skills/i.test(query)) {
       this.setState({
-        result: content.Skills
+        currentContent: content.Skills
       });
-    } else if (/experience/i.test(query)) {
+    } else if (/experiences/i.test(query)) {
       this.setState({
-        result: content.Experience
+        currentContent: content.Experience
       });
     } else if (/projects/i.test(query)) {
       this.setState({
-        result: content.Projects
+        currentContent: content.Projects
       });
     } else if (/courses/i.test(query) || /classes/i.test(query)) {
       this.setState({
-        result: content.Courses
+        currentContent: content.Courses
       });
     } else if (/flip/i.test(query)) {
       flipTheme();
@@ -77,7 +96,7 @@ class CLIPortfolio extends Component {
       generateData();
     } else {
       this.setState({
-        result: { Title: "", Description: "", Content: [""] }
+        currentContent: { Title: "", Description: "", Content: [""] }
       });
     }
   }
@@ -107,7 +126,8 @@ class CLIPortfolio extends Component {
   render() {
     const {
       query,
-      result,
+      content,
+      currentContent,
       colors,
       darkMode,
       mountContent,
@@ -276,6 +296,8 @@ class CLIPortfolio extends Component {
       </div>
     );
 
+    // const cmdList = <div />;
+
     const cmdList = (
       <div
         id="cmd-list"
@@ -378,9 +400,9 @@ class CLIPortfolio extends Component {
         </div>
         {mountContent && (
           <Content
-            title={result.Title}
-            description={result.Description}
-            content={result.Content}
+            title={currentContent.Title}
+            description={currentContent.Description}
+            content={currentContent.Content}
             color={colors.Secondary}
           />
         )}

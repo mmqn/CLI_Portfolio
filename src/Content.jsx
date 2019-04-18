@@ -45,7 +45,7 @@ const Content = ({ title, description, content, color }) => {
         <p key={paragraph.substring(0, 9)}>{paragraph}</p>
       ))}
       {title && email}
-      <span style={{ padding: "0px 5px" }} />
+      <span style={{ padding: "0px 8px" }} />
       {title && linkedIn}
     </div>
   </ErrorBoundary>
